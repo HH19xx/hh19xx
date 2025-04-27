@@ -5,13 +5,10 @@
         @include flex-detail(column, center, center)
     }
 
-    ;
-
     @media screen and (min-width: 780px) {
         @include flex-detail(row, center, center);
     }
 
-    ;
     height: 90%;
     width:100%;
 
@@ -53,6 +50,15 @@
         }
 
         min-height: 100vh;
+
+        .tab-contents {
+            @include flex-detail();
+            width: 90%;
+            height: 90%;
+            margin: 0;
+            padding: 0;
+            color: black;
+        }
 
         .tab-contents-hidden {
             display: none;

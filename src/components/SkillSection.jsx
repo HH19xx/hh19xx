@@ -20,7 +20,7 @@ const SkillSection = () => {
               <td className="e_col2">React</td>
               <td className="e_col3">SCSS</td>
               <td className="e_col4">Nest</td>
-              <td className="e_col5">Echo</td>
+              <td className="e_col5">Echo、Spring</td>
             </tr>
           </table>
           <p>他に、Rust、AdobeCC、AWS、Docker等もよく使っています。</p>

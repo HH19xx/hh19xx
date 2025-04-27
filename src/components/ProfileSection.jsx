@@ -16,11 +16,39 @@ const ProfileSection = () => {
             <img src="./src/assets/images/HARUH-favicon.png" alt="HARUH" srcset=""></img>
             <p>黄色い下線の引いてあるところのうち、気になったものをクリックしてみてください。</p>
           </div>
-          <p>1995年生まれ、東京育ち。座右の銘は<a href="#" className="tab-nav" onClick={() => handleTabClick('座右の銘')}>「敢えて賢明であれ(Sapere Aude)」</a>。</p>
-          <p><a href="#" className="tab-nav" onClick={() => handleTabClick('経歴')}>2018年に東京にある大学の政治経済学部政治学科を卒業した後</a>、<a href="#"
-              className="tab-nav" onClick={() => handleTabClick('論理と知識についての問題')}>計算機科学の独学をしながら哲学の著作の構想を練っていました。</a></p>
+          <p>1995年生まれ、東京育ち。座右の銘は
+            <span className="tab-nav" onClick={(e) => {
+              e.preventDefault();
+              handleTabClick('座右の銘');
+              }}>
+              「敢えて賢明であれ(Sapere Aude)」
+            </span>
+            。
+          </p>
+          <p>
+            <span className="tab-nav" onClick={(e) => {
+              e.preventDefault();
+              handleTabClick('経歴');
+            }}>
+              2018年に東京にある大学の政治経済学部政治学科を卒業した後
+            </span>
+            、
+            <span className="tab-nav" onClick={(e)=> {
+              e.preventDefault();
+              handleTabClick('論理と知識についての問題');
+             }}>
+              計算機科学の独学をしながら哲学の著作の構想を練っていました。
+            </span>
+          </p>
           <p>最近は、ITの活用によるコスト削減と事業支援を駆使した、参入障壁のない教育・研究機関の創設を目指しています。</p>
-          <p>哲学書をよく読んでいて、好きな哲学者はカント、ハイデガー、ウィトゲンシュタイン等。<a className="tab-nav" href="#" onClick={() => handleTabClick('尊敬している人')}>とりわけカントは人物としても尊敬しています</a>。</p>
+          <p>哲学書をよく読んでいて、好きな哲学者はカント、ハイデガー、ウィトゲンシュタイン等。
+            <span className="tab-nav" onClick={
+            (e) => {e.preventDefault();
+              handleTabClick('尊敬している人');
+            }}>
+              とりわけカントは人物としても尊敬しています</span>
+              。
+          </p>
           <p>
             YouTube、AbemaTV、AmazonPrimeVideo等、動画配信サービスもよく見ていて、ホラー、SF、ニュース等をよく見ています。アニメや漫画も好きで、CLAMP、こげどんぼ、京都アニメーション等の作品が大好きです。現代のクリエイターでは、さとだ、模造クリスタル等、ありがちな疑問を掘り下げていくような作風の人が大好きです。
           </p>

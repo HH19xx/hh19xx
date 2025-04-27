@@ -16,13 +16,13 @@ const MaximPromiseSection = () => {
             <img src="./src/assets/images/HARUH-favicon.png" alt="HARUH" srcset=""></img>
             <p>黄色い下線の引いてあるところのうち、気になったものをクリックしてみてください。</p>
           </div>
-          <h3><a href="#" className="tab-nav" onClick={() => handleTabClick('自他に誠実')}>①自他に誠実</a>、</h3>
-          <h3><a href="#" className="tab-nav" onClick={() => handleTabClick('道徳は順守・慣習は尊重')}>②道徳は順守・慣習は尊重</a>、</h3>
-          <h3><a href="#" className="tab-nav" onClick={() => handleTabClick('理解と提案')}>③理解と提案</a>、</h3>
+          <h3><span className="tab-nav" onClick={() => handleTabClick('自他に誠実')}>①自他に誠実</span>、</h3>
+          <h3><span className="tab-nav" onClick={() => handleTabClick('道徳は順守・慣習は尊重')}>②道徳は順守・慣習は尊重</span>、</h3>
+          <h3><span className="tab-nav" onClick={() => handleTabClick('理解と提案')}>③理解と提案</span>、</h3>
           <p>この３つが私の大切にしている行動原理です。今後は、</p>
-          <h3><a href="#" className="tab-nav" onClick={() => handleTabClick('計算機科学のさらなる理解')}>①計算機科学のさらなる理解</a>、</h3>
-          <h3><a href="#" className="tab-nav" onClick={() => handleTabClick('哲学の著作の作成')}>②哲学の著作の作成</a>、</h3>
-          <h3><a href="#" className="tab-nav" onClick={() => handleTabClick('事業収入で成り立つ教育・研究機関の創設')}>③事業収入で成り立つ教育・研究機関の創設</a>、</h3>
+          <h3><span className="tab-nav" onClick={() => handleTabClick('計算機科学のさらなる理解')}>①計算機科学のさらなる理解</span>、</h3>
+          <h3><span className="tab-nav" onClick={() => handleTabClick('哲学の著作の作成')}>②哲学の著作の作成</span>、</h3>
+          <h3><span className="tab-nav" onClick={() => handleTabClick('事業収入で成り立つ教育・研究機関の創設')}>③事業収入で成り立つ教育・研究機関の創設</span>、</h3>
           <p>この３つを目標に、努力していくことをお約束します。</p>
         </div>
         <div className="maxim-promise_right">

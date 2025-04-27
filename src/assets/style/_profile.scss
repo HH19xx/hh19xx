@@ -26,10 +26,11 @@
 
         height: 100%;
 
-        a {
+        .tab-nav {
             @include lit-anchor();
             color: white;
             text-decoration: none;
+            cursor: pointer;
         }
 
         .show {
@@ -53,8 +54,8 @@
 
         .tab-contents {
             @include flex-detail();
-            width: 100%;
-            height: 100%;
+            width: 90%;
+            height: 90%;
             margin: 0;
             padding: 0;
             color: black;
@@ -66,8 +67,8 @@
 
         .tab-contents-shown {
             @include flex-detail();
-            width: 100%;
-            height: 100%;
+            width: 90%;
+            height: 90%;
             margin: 0;
             padding: 0;
             color: black;

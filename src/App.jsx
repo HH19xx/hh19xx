@@ -13,7 +13,7 @@ import './assets/style/style.scss';
 const App = () => {
   return (
     <>
-      <ScrollAction selectors=".maxim-promise a, .profile a, .profile img, .links a, .skills span, .last-copy" />
+      <ScrollAction selectors=".maxim-promise .tab-nav, .profile .tab-nav, .profile img, .links a, .skills span, .last-copy" />
       <Header />
       <Nav />
       <main className="main">
