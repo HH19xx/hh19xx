@@ -7,11 +7,11 @@ const Header = () => {
       <div className="header_copy">
         <h2>あなたのためのインターフェース</h2>
       </div>
-      <div className="c_bicycle">
+      {/* <div className="c_bicycle">
         <a className="e_bicycle">
           <i className="fas fa-bicycle"></i>
         </a>
-      </div>
+      </div> */}
     </header>
   );
 };

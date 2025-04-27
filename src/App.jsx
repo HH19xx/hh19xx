@@ -9,6 +9,7 @@ import LinkSection from './components/LinkSection';
 import Footer from './components/Footer';
 import ScrollAction from './components/ScrollAction';
 import './assets/style/style.scss';
+import BicycleMenu from './components/BicycleMenu';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <MaximPromiseSection />
         <SkillSection />
         <LinkSection />
+        <BicycleMenu />
       </main>
       <Footer />
     </>
