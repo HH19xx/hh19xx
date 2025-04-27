@@ -1,0 +1,90 @@
+import React, { useState } from 'react';
+
+const ProfileSection = () => {
+  const [activeTab, setActiveTab] = useState('座右の銘'); // デフォルトのアクティブタブ
+
+  const handleTabClick = (tabName) => {
+    setActiveTab(tabName);
+  };
+
+  return (
+    <section className="main_section">
+      <h2 id="profile" className="title">プロフィール</h2>
+      <div className="profile contents">
+        <div className="profile-left">
+          <div className="intro">
+            <img src="./src/assets/images/HARUH-favicon.png" alt="HARUH" srcset=""></img>
+            <p>黄色い下線の引いてあるところのうち、気になったものをクリックしてみてください。</p>
+          </div>
+          <p>1995年生まれ、東京育ち。座右の銘は<a href="#" className="tab-nav" onClick={() => handleTabClick('座右の銘')}>「敢えて賢明であれ(Sapere Aude)」</a>。</p>
+          <p><a href="#" className="tab-nav" onClick={() => handleTabClick('経歴')}>2018年に東京にある大学の政治経済学部政治学科を卒業した後</a>、<a href="#"
+              className="tab-nav" onClick={() => handleTabClick('論理と知識についての問題')}>計算機科学の独学をしながら哲学の著作の構想を練っていました。</a></p>
+          <p>最近は、ITの活用によるコスト削減と事業支援を駆使した、参入障壁のない教育・研究機関の創設を目指しています。</p>
+          <p>哲学書をよく読んでいて、好きな哲学者はカント、ハイデガー、ウィトゲンシュタイン等。<a className="tab-nav" href="#" onClick={() => handleTabClick('尊敬している人')}>とりわけカントは人物としても尊敬しています</a>。</p>
+          <p>
+            YouTube、AbemaTV、AmazonPrimeVideo等、動画配信サービスもよく見ていて、ホラー、SF、ニュース等をよく見ています。アニメや漫画も好きで、CLAMP、こげどんぼ、京都アニメーション等の作品が大好きです。現代のクリエイターでは、さとだ、模造クリスタル等、ありがちな疑問を掘り下げていくような作風の人が大好きです。
+          </p>
+        </div>
+        <div className="profile-right">
+          {activeTab === '座右の銘' && (
+            <div className="tab-contents">
+              <h3>座右の銘</h3>
+              <p>「敢えて賢明であれ(Sapere Aude)」は、イマヌエル・カントの『啓蒙とは何か？』で紹介されている、古代ローマの箴言です。 </p>
+              <p>
+                カントは『啓蒙とは何か』の中で「啓蒙とは魂の未成年状態からの脱却である」とした上で、そのために「敢えて賢明であれ」と説きました。人々はよく、仕事をしているときを「公的」、休んでいるときを「私的」と言いますが、カントは逆であるとしました。というのも、仕事をするとき、人々はローカルな慣習に従わなければなりませんが、休んでいるとき、人々はグローバルな法則だけに従って、自由に行動することができるからです。ところで、物事の善悪を考え、善い仕事をするためには自由でなければなりません。そういうわけで、大人であるならば、公的であり、また私的でもあれ、すなわち「敢えて賢明であれ」と、彼は言ったのです。
+              </p>
+              <p>私も因習や固定観念と戦いながら何かを成し遂げなければならないとき、自らにこの言葉を言い聞かせています。</p>
+            </div>
+          )}
+          {activeTab === '経歴' && (
+            <div className="tab-contents">
+              <h3>経歴</h3>
+              <div className="career">
+                <div className="arrow">
+                  <img src="./src/assets/images/HARUH-arrow1.png" alt="arrow1"></img>
+                  {/* <img src="./src/assets/images/HARUH-arrow2.png" alt="arrow2"></img> */}
+                </div>
+                <div className="timeline">
+                  <div className="tl">
+                    <p><span>1995~2000</span><br />東京都豊島区出身</p>
+                  </div>
+                  <div className="tl">
+                    <p><span>2000~2008</span><br />東京都の私立幼小中高一貫校入学</p>
+                  </div>
+                  <div className="tl">
+                    <p><span>2008~2014</span><br />東京都の幼小中高一貫校卒業</p>
+                  </div>
+                  <div className="tl">
+                    <p><span>2014~2018</span><br />東京都の大学の政治経済学部政治学科入学、卒業</p>
+                  </div>
+                  <div className="tl">
+                    <p><span>2018~</span><br />哲学書の構想、計算機科学の独学</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+          {activeTab === '論理と知識についての問題' && (
+            <div className="tab-contents">
+              <h3>論理と知識についての問題</h3>
+              <p>
+                この頃の私の疑問は「人が何かを知ることは可能なのか？」というものでした。そして、私がそのために取り組んだのが、論理と知識についての問題でした。私は「論理は世界の存在の法則である」という論理主義の立場に立脚し、集合を「物の集まり」とする現代集合論や「論理は人々の思考の形式である」という形式主義論理学を拒否したうえで、論理学と知識論を立て直そうとしていたのです。この疑問がどうして成立するのか、そして、これらの分野がどうして結びつくのか、その理由は長い話になるため、また別の機会に語らなければなりません。
+              </p>
+            </div>
+          )}
+          {activeTab === '尊敬している人' && (
+            <div className="tab-contents">
+              <h3>尊敬している人</h3>
+              <p>イマヌエル・カントは18世紀のプロイセン王国の人物で、人類史上最高の哲学者として知られています。</p>
+              <p>彼の著作、いわゆる「三批判」は、現在の自然科学、社会科学、人文学といったあらゆる思想の基礎となっているとされています。そして、性格は明るく社交的な反面、正義感が強く、その装いは常に洗練されていたとされています。
+              </p>
+              <p>その思想においても、言動においても、装いにおいても、いかなる妥協も許さないカントの姿勢は素晴らしいもので、それが、私が彼を尊敬している理由です。</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ProfileSection;

@@ -1,6 +1,13 @@
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  // ここにViteの設定を記述します
-  // 例えば、開発サーバーのポート番号を変更したり、プラグインを追加したりできます。
+  plugins: [react()],
+  optimizeDeps: {
+    esbuildOptions: {
+      loader: {
+        '.js': 'jsx',
+      },
+    },
+  },
 });

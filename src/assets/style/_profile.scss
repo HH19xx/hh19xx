@@ -5,8 +5,6 @@
         @include flex-detail(column, center, center)
     }
 
-    ;
-
     @media screen and (min-width: 780px) {
         @include flex-detail(row, center, center);
     }
@@ -53,6 +51,17 @@
 
         min-height: 100vh;
 
+        color: black;
+
+        .tab-contents {
+            @include flex-detail();
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            color: black;
+        }
+
         .tab-contents-hidden {
             display: none;
         }
@@ -67,7 +76,7 @@
         }
 
         .career {
-            @include flex-detail(row, center, flex-start);
+            @include flex-detail();
             width: 100%;
             height: 90%;
 
@@ -88,7 +97,7 @@
             }
 
             .timeline {
-                @include flex-detail(column, flex-start, space-between);
+                @include flex-detail();
                 width: 80%;
                 height: 80%;
             }
