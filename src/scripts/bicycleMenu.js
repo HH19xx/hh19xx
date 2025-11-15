@@ -20,6 +20,16 @@ const toggleMenu = () => {
     }
 }
 const bicycleMenu = () => {
+    // ページ読み込み時のアニメーションを防ぐため、no-transitionクラスを追加
+    nav.classList.add('no-transition')
+
+    // ブラウザの次の描画フレームでno-transitionクラスを削除
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            nav.classList.remove('no-transition')
+        })
+    })
+
     bicycle.addEventListener('click', toggleMenu)
     innerBicycle.addEventListener('click', handleClose)
     main.addEventListener('click', handleClose)
