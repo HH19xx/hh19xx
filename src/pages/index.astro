@@ -21,6 +21,9 @@ import '../styles/style.scss';
       opacity: 1;
     }
   </style>
+  <script>
+    import '../scripts/index.js'
+  </script>
   <link rel="icon" href="/assets/images/HARUH-favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
@@ -300,135 +303,6 @@ import '../styles/style.scss';
       </div>
     </a>
   </footer>
-
-  <script>
-    // JavaScriptの機能をインラインで実装
-    // bicycleMenu.jsの機能
-    const main = document.querySelector('.main')
-    const faBicycle = document.querySelector('.fa-bicycle')
-    const bicycle = document.querySelector('.c_bicycle')
-    const innerBicycle = document.querySelector('.c_bicycle_inner')
-    const nav = document.querySelector('.nav')
-
-    const handleOpen = () => {
-        nav.setAttribute('style', 'transform: translateX(100%);')
-        faBicycle.classList.replace('fa-bicycle', 'fa-biking')
-    }
-    const handleClose = () => {
-        nav.setAttribute('style', 'transform: translateX(200%);')
-        faBicycle.classList.replace('fa-biking', 'fa-bicycle')
-    }
-    const toggleMenu = () => {
-        if (nav.style.transform !== 'translateX(100%)') {
-            handleOpen()
-        } else {
-            handleClose()
-        }
-    }
-
-    // ページ読み込み時のアニメーションを防ぐため、no-transitionクラスを追加
-    nav.classList.add('no-transition')
-    // 初期状態で右側に隠す
-    nav.style.transform = 'translateX(200%)'
-
-    // ブラウザの次の描画フレームでno-transitionクラスを削除
-    requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-            nav.classList.remove('no-transition')
-        })
-    })
-
-    bicycle.addEventListener('click', toggleMenu)
-    innerBicycle.addEventListener('click', handleClose)
-    main.addEventListener('click', handleClose)
-
-    // scrollAction.jsの機能
-    const anchor = document.querySelectorAll('.maxim-promise a, .profile a, .profile img, .links a, .skills span, .last-copy')
-    const setAction = () => {
-        for (let i = 0; i < anchor.length; i++) {
-            const getAnchorDistance = anchor[i].getBoundingClientRect().top + anchor[i].clientHeight
-            if (window.innerHeight > getAnchorDistance * 1.2) {
-                anchor[i].classList.add('show')
-            } else {
-                anchor[i].classList.remove('show')
-            }
-        }
-    }
-    document.addEventListener('scroll', setAction)
-
-    // tab1.jsの機能（プロフィールセクション）
-    const nav1 = document.querySelectorAll(".profile .tab-nav")
-    const navArray1 = Array.from(nav1)
-    const content1 = document.querySelectorAll(".profile .tab-contents")
-    const contentArray1 = Array.from(content1)
-
-    // 初期設定
-    const init1 = () => {
-        for (let index = 0; index < contentArray1.length; index++) {
-            contentArray1[index].classList.remove('tab-contents-shown');
-            contentArray1[index].classList.add('tab-contents-hidden');
-        };
-        contentArray1[1].classList.remove('tab-contents-hidden');
-        contentArray1[1].classList.add('tab-contents-shown');
-    }
-
-    // クリックしたら起こるイベント
-    const handleClick1 = (event) => {
-        event.preventDefault();
-        const target = event.target;
-        const targetVal = navArray1.indexOf(target)
-
-        for (let index = 0; index < contentArray1.length; index++) {
-            contentArray1[index].classList.remove('tab-contents-shown');
-            contentArray1[index].classList.add('tab-contents-hidden');
-        };
-
-        contentArray1[targetVal].classList.replace('tab-contents-hidden', 'tab-contents-shown')
-    };
-
-    init1()
-    for (let index = 0; index < navArray1.length; index++) {
-        navArray1[index].addEventListener('click', (event) => handleClick1(event));
-    }
-
-    // tab2.jsの機能（行動原理とお約束セクション）
-    const nav2 = document.querySelectorAll(".maxim-promise .tab-nav")
-    const navArray2 = Array.from(nav2)
-    const content2 = document.querySelectorAll(".maxim-promise .tab-contents")
-    const contentArray2 = Array.from(content2)
-
-    // 初期設定
-    const init2 = () => {
-        for (let index = 0; index < contentArray2.length; index++) {
-            contentArray2[index].classList.remove('tab-contents-shown');
-            contentArray2[index].classList.add('tab-contents-hidden');
-        };
-        contentArray2[0].classList.remove('tab-contents-hidden');
-        contentArray2[0].classList.add('tab-contents-shown');
-    }
-
-    // クリックしたら起こるイベント
-    const handleClick2 = (event) => {
-        event.preventDefault();
-        const target = event.target;
-        const targetVal = navArray2.indexOf(target)
-
-        for (let index = 0; index < contentArray2.length; index++) {
-            contentArray2[index].classList.remove('tab-contents-shown');
-            contentArray2[index].classList.add('tab-contents-hidden');
-        };
-
-        contentArray2[targetVal].classList.replace('tab-contents-hidden', 'tab-contents-shown')
-    };
-
-    init2()
-    for (let index = 0; index < navArray2.length; index++) {
-        navArray2[index].addEventListener('click', (event) => handleClick2(event));
-    }
-
-    // FOUC防止: スタイルが適用されたらbodyを表示
-    document.body.classList.add('loaded')
-  </script>
 </body>
 
 </html>

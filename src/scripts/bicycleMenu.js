@@ -22,6 +22,8 @@ const toggleMenu = () => {
 const bicycleMenu = () => {
     // ページ読み込み時のアニメーションを防ぐため、no-transitionクラスを追加
     nav.classList.add('no-transition')
+    // 初期状態で右側に隠す
+    nav.style.transform = 'translateX(200%)'
 
     // ブラウザの次の描画フレームでno-transitionクラスを削除
     requestAnimationFrame(() => {
