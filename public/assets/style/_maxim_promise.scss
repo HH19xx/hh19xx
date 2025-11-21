@@ -1,0 +1,66 @@
+@import "common";
+
+.maxim-promise {
+    @media screen and (max-width: 780px) {
+        @include flex-detail(column, center, center)
+    }
+
+    ;
+
+    @media screen and (min-width: 780px) {
+        @include flex-detail(row, center, center);
+    }
+
+    ;
+    height: 90%;
+    width:100%;
+
+    .maxim-promise_left {
+        @include left-frame();
+        @include flex-detail();
+
+        @media screen and (max-width: 780px) {
+            width: 100%;
+        }
+
+        @media screen and (min-width: 780px) {
+            width: 50%;
+        }
+
+        min-height: 100%;
+
+        a {
+            @include lit-anchor();
+            color: white;
+            text-decoration: none;
+        }
+
+        .show {
+            @include underline();
+        }
+    }
+
+    .maxim-promise_right {
+        @include right-frame();
+        @include flex-detail();
+
+        @media screen and (max-width: 780px) {
+            width: 100%;
+        }
+
+        @media screen and (min-width: 780px) {
+            width: 50%;
+        }
+
+        min-height: 100vh;
+
+        .tab-contents-hidden {
+            display: none;
+        }
+
+        .tab-contents-shown {
+            @include flex-detail();
+            color: black;
+        }
+    }
+}
