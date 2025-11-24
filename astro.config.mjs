@@ -7,7 +7,7 @@ export default defineConfig({
         enabled: false,
     },
     // GitHub Pages 上でのサイトの「絶対 URL」
-    // site: 'https://haruh19xx.github.io',
+    site: 'https://hh19xx.github.io',
     // プロジェクトページ用に、リポジトリ名を base に付ける
-    // base: '/astro-haruh19xx',
+    base: '/hh19xx',
 });
