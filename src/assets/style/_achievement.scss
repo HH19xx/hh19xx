@@ -1,4 +1,4 @@
-@import 'common';
+@use './_common' as *;
 
 .achievement {
     height: 90%;
@@ -52,7 +52,15 @@
         margin-bottom: 10%;
 
         h3 {
-            @include flex-detail()
+            @include flex-detail();
+        }
+
+        h4 {
+            @include flex-detail();
+        }
+
+        p {
+            margin: 20px;
         }
 
         .work {

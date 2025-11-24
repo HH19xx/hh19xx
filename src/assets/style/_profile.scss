@@ -1,4 +1,4 @@
-@import "common";
+@use './_common' as *;
 
 .profile {
     @media screen and (max-width: 780px) {
@@ -26,7 +26,11 @@
             width: 50%;
         }
 
-        height: 100%;
+        height: 80vh;
+
+        p {
+            margin: 20px;
+        }
 
         a {
             @include lit-anchor();
@@ -51,7 +55,11 @@
             width: 50%;
         }
 
-        min-height: 100vh;
+        min-height: 80vh;
+
+        .tab-contents {
+            margin: 20px;
+        }
 
         .tab-contents-hidden {
             display: none;
@@ -59,8 +67,8 @@
 
         .tab-contents-shown {
             @include flex-detail();
-            width: 100%;
-            height: 100%;
+            width: 90%;
+            height: 90%;
             margin: 0;
             padding: 0;
             color: black;

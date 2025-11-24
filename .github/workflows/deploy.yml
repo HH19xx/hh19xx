@@ -1,0 +1,52 @@
+name: Deploy Astro site to GitHub Pages
+
+on:
+  # main ブランチに push されたときに自動実行
+  push:
+    branches: [ "release1.0" ]
+  # GitHub の Actions タブから手動実行できるようにしておく
+  workflow_dispatch:
+
+# このワークフローで使う GitHub トークンの権限
+permissions:
+  contents: read    # リポジトリの中身を読む
+  pages: write      # GitHub Pages へ反映する
+  id-token: write   # デプロイ時の認証で使用
+
+jobs:
+  # 1) Astro サイトをビルドして、Pages 用アーティファクトを作るジョブ
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # リポジトリのソースコードをチェックアウト
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      # Astro 公式アクション
+      # - 依存関係のインストール
+      # - `npm run build` 相当のビルド
+      # - GitHub Pages 用アーティファクトのアップロード
+      # をまとめてやってくれる
+      - name: Install deps, build, and upload site
+        uses: withastro/action@v5
+        # 必要に応じてオプションを開けて設定（普段は不要）
+        # with:
+        #   path: .               # プロジェクトルートがサブディレクトリなら指定
+        #   node-version: 22      # Node のバージョン（デフォルト 22）
+        #   package-manager: pnpm@latest  # pnpm や bun を使うなら明示も可
+
+  # 2) 上でアップロードしたアーティファクトを GitHub Pages に反映するジョブ
+  deploy:
+    needs: build          # かならず build のあとに実行
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      # 後続のステップが出力する公開 URL を environment に反映
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        # GitHub 公式の Pages デプロイアクション（v4）
+        uses: actions/deploy-pages@v4

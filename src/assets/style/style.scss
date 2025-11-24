@@ -1,8 +1,8 @@
-@import 'common';
-@import 'greeting';
-@import 'profile';
-@import 'maxim_promise';
-@import 'achievement';
-@import 'links';
-@import 'last';
-@import 'other';
+@use './_common';
+@use './_greeting';
+@use './_profile';
+@use './_maxim_promise';
+@use './_achievement';
+@use './_links';
+@use './_last';
+@use './_other';

@@ -1,0 +1,29 @@
+---
+// index.astroページコンポーネント
+// 画像のインポート
+import faviconImg from '../assets/images/HARUH-favicon.png';
+import logo9Img from '../assets/images/HARUH-logo9.png';
+import logo5Img from '../assets/images/HARUH-logo5.png';
+import arrow1Img from '../assets/images/HARUH-arrow1.png';
+import noteLogoImg from '../assets/images/note_logo.png';
+---
+
+<div class="greeting">
+    <div class="logo">
+        <img src={logo9Img.src} alt="HARUH">
+    </div>
+    <div class="logo">
+        <img src={logo5Img.src} alt="HARUH">
+    </div>
+    <div class="copies">
+        <div class="phrase">
+        <img src={faviconImg.src} alt="HARUH" />
+        <h3>こんにちは。</h3>
+        <h3>私は確かな哲学と技術を備えたインターフェースです。</h3>
+        <h3>あなたは私を通して様々な知識に触れることができます。</h3>
+        </div>
+        <div class="sub-copy">
+        <h3>確かな哲学と技術で、皆が輝ける世界を作ります。</h3>
+        </div>
+    </div>
+</div>
