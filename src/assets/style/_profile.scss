@@ -1,0 +1,105 @@
+@import "common";
+
+.profile {
+    @media screen and (max-width: 780px) {
+        @include flex-detail(column, center, center)
+    }
+
+    ;
+
+    @media screen and (min-width: 780px) {
+        @include flex-detail(row, center, center);
+    }
+
+    height: 90%;
+    width: 100%;
+
+    .profile-left {
+        @include flex-detail();
+        @include left-frame();
+
+        @media screen and (max-width: 780px) {
+            width: 100%;
+        }
+
+        @media screen and (min-width: 780px) {
+            width: 50%;
+        }
+
+        height: 100%;
+
+        a {
+            @include lit-anchor();
+            color: white;
+            text-decoration: none;
+        }
+
+        .show {
+            @include underline();
+        }
+    }
+
+    .profile-right {
+        @include flex-detail();
+        @include right-frame();
+
+        @media screen and (max-width: 780px) {
+            width: 100%;
+        }
+
+        @media screen and (min-width: 780px) {
+            width: 50%;
+        }
+
+        min-height: 100vh;
+
+        .tab-contents-hidden {
+            display: none;
+        }
+
+        .tab-contents-shown {
+            @include flex-detail();
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            color: black;
+        }
+
+        .career {
+            @include flex-detail(row, center, flex-start);
+            width: 100%;
+            height: 90%;
+
+            >h3 {
+                height: 10%;
+            }
+
+            .arrow {
+                width: 20%;
+                height: 100%;
+                margin: 0 20px;
+                position: relative;
+
+                img {
+                    width: 100%;
+                    height: 0%;
+                }
+            }
+
+            .timeline {
+                @include flex-detail(column, flex-start, space-between);
+                width: 80%;
+                height: 80%;
+            }
+
+            .tl {
+                width: 90%;
+                height: fit-content;
+                border: 2px solid $lit-color;
+                border-radius: 10px;
+                margin: 10px 0;
+            }
+        }
+    }
+}
