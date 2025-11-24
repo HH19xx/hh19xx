@@ -3,7 +3,7 @@ name: Deploy Astro site to GitHub Pages
 on:
   # main ブランチに push されたときに自動実行
   push:
-    branches: [ "release" ]
+    branches: [ "release1.0" ]
   # GitHub の Actions タブから手動実行できるようにしておく
   workflow_dispatch:
 
