@@ -1,4 +1,4 @@
-@import 'common';
+@use './_common' as *;
 
 .links {
     @media screen and (max-width: 780px) {

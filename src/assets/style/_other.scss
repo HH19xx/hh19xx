@@ -1,4 +1,4 @@
-@import "common";
+@use './_common' as *;
 
 //スタイリング
 * {
@@ -122,6 +122,13 @@
 
     .tab-contents-shown {
         overflow-y: scroll;
+        // スクロールバーを非表示
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE, Edge */
+        
+        &::-webkit-scrollbar {
+            display: none; /* Chrome, Safari */
+        }
     }
 
     .intro {
