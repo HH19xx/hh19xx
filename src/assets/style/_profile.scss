@@ -75,7 +75,7 @@
         }
 
         .career {
-            @include flex-detail(row, center, flex-start);
+            @include flex-detail(row, center, center);
             width: 100%;
             height: 90%;
 
@@ -83,31 +83,202 @@
                 height: 10%;
             }
 
-            .arrow {
-                width: 20%;
-                height: 100%;
-                margin: 0 20px;
+            // タイムラインのラッパー: 中央に縦線を配置するための相対位置指定
+            .timeline-wrapper {
                 position: relative;
+                width: 100%;
+                padding: 40px 0;
+            }
 
-                img {
-                    width: 100%;
-                    height: 0%;
+            // タイムラインの縦線: 中央に紫色の線を描画
+            .timeline-line {
+                position: absolute;
+                left: 50%;
+                top: 0;
+                bottom: 0;
+                width: 3px;
+                background: linear-gradient(180deg,
+                    rgba(167, 31, 65, 0.3) 0%,
+                    rgba(167, 31, 65, 1) 20%,
+                    rgba(167, 31, 65, 1) 80%,
+                    rgba(167, 31, 65, 0.3) 100%);
+                transform: translateX(-50%);
+            }
+
+            // タイムラインの各項目: 縦一列に配置
+            .timeline-item {
+                position: relative;
+                width: 100%;
+                margin: 10px 0;
+                @include flex-detail(row, center, center);
+
+                // 中央のマーカー(丸): 紫色の円を中央に配置
+                .timeline-marker {
+                    position: absolute;
+                    top: 10%;
+                    left: 50%;
+                    width: 16px;
+                    height: 16px;
+                    background-color: rgba(167, 31, 65, 1);
+                    border: 3px solid rgba(254, 238, 237, 1);
+                    border-radius: 50%;
+                    transform: translateX(-50%);
+                    z-index: 2;
+                    box-shadow: 0 0 0 4px rgba(167, 31, 65, 0.2);
+                    transition: all 0.3s ease;
+                }
+
+                // コンテンツカード: 年代と説明を中央に表示
+                .timeline-content {
+                    width: 80%;
+                    max-width: 400px;
+                    padding: 15px 20px;
+                    background-color: white;
+                    border: 2px solid $lit-color;
+                    border-radius: 10px;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                    transition: all 0.3s ease;
+
+                    span {
+                        color: $lit-color;
+                        font-weight: bold;
+                        font-size: 0.9em;
+                    }
+
+                    p {
+                        margin: 8px 0 0 0;
+                        color: $dark-color;
+                        line-height: 1.6;
+                    }
+                }
+
+                // ホバー効果: カードを拡大してマーカーを強調
+                &:hover {
+                    .timeline-content {
+                        transform: scale(1.05);
+                        box-shadow: 0 4px 16px rgba(167, 31, 65, 0.3);
+                    }
+
+                    .timeline-marker {
+                        transform: translateX(-50%) scale(1.3);
+                        box-shadow: 0 0 0 6px rgba(167, 31, 65, 0.3);
+                    }
                 }
             }
 
-            .timeline {
-                @include flex-detail(column, flex-start, space-between);
-                width: 80%;
-                height: 80%;
-            }
+            // 左右交互配置のスタイル（不要になったためコメントアウト）
+            // .timeline-item {
+            //     position: relative;
+            //     width: 100%;
+            //     margin: 30px 0;
+            //     @include flex-detail(row, center, center);
 
-            .tl {
-                width: 90%;
-                height: fit-content;
-                border: 2px solid $lit-color;
-                border-radius: 10px;
-                margin: 10px 0;
-            }
+            //     .timeline-marker {
+            //         position: absolute;
+            //         left: 50%;
+            //         width: 16px;
+            //         height: 16px;
+            //         background-color: rgba(167, 31, 65, 1);
+            //         border: 3px solid rgba(254, 238, 237, 1);
+            //         border-radius: 50%;
+            //         transform: translateX(-50%);
+            //         z-index: 2;
+            //         box-shadow: 0 0 0 4px rgba(167, 31, 65, 0.2);
+            //         transition: all 0.3s ease;
+            //     }
+
+            //     .timeline-content {
+            //         width: 40%;
+            //         padding: 15px 20px;
+            //         background-color: white;
+            //         border: 2px solid $lit-color;
+            //         border-radius: 10px;
+            //         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            //         transition: all 0.3s ease;
+
+            //         span {
+            //             color: $lit-color;
+            //             font-weight: bold;
+            //             font-size: 0.9em;
+            //         }
+
+            //         p {
+            //             margin: 8px 0 0 0;
+            //             color: $dark-color;
+            //             line-height: 1.6;
+            //         }
+            //     }
+
+            //     &.left {
+            //         justify-content: flex-start;
+
+            //         .timeline-content {
+            //             margin-right: auto;
+            //             margin-left: 5%;
+            //         }
+
+            //         &::before {
+            //             content: '';
+            //             position: absolute;
+            //             left: 50%;
+            //             top: 50%;
+            //             width: 40px;
+            //             height: 2px;
+            //             background-color: rgba(167, 31, 65, 0.5);
+            //             transform: translateY(-50%);
+            //         }
+            //     }
+
+            //     &.right {
+            //         justify-content: flex-end;
+
+            //         .timeline-content {
+            //             margin-left: auto;
+            //             margin-right: 5%;
+            //         }
+
+            //         &::before {
+            //             content: '';
+            //             position: absolute;
+            //             right: 50%;
+            //             top: 50%;
+            //             width: 40px;
+            //             height: 2px;
+            //             background-color: rgba(167, 31, 65, 0.5);
+            //             transform: translateY(-50%);
+            //         }
+            //     }
+
+            //     &:hover {
+            //         .timeline-content {
+            //             transform: scale(1.05);
+            //             box-shadow: 0 4px 16px rgba(167, 31, 65, 0.3);
+            //         }
+
+            //         .timeline-marker {
+            //             transform: translateX(-50%) scale(1.3);
+            //             box-shadow: 0 0 0 6px rgba(167, 31, 65, 0.3);
+            //         }
+            //     }
+            // }
+
+            // @media screen and (max-width: 780px) {
+            //     .timeline-item {
+            //         &.left,
+            //         &.right {
+            //             justify-content: center;
+
+            //             .timeline-content {
+            //                 width: 80%;
+            //                 margin: 0 auto;
+            //             }
+
+            //             &::before {
+            //                 display: none;
+            //             }
+            //         }
+            //     }
+            // }
         }
     }
 }
