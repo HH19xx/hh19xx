@@ -52,6 +52,12 @@
         width: 100%;
         margin-bottom: 10%;
 
+        a {
+            @include lit-anchor();
+            color: white;
+            text-decoration: none;
+        }
+
         h3 {
             @include flex-detail();
         }
